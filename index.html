@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capixaba Artefatos de Madeira - Tabela de Preços</title>
+<style>
+  :root {
+    --marrom: #6b3f1d;
+    --marrom-claro: #8a5a2e;
+    --bege: #f5efe6;
+    --verde: #2e7d32;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bege);
+    color: #2b2b2b;
+  }
+  header {
+    background: var(--marrom);
+    color: #fff;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.6rem;
+  }
+  header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+  .badge {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--verde);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 16px 40px 16px;
+  }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  #busca {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  .contador {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    font-size: 0.92rem;
+  }
+  thead th {
+    background: var(--marrom-claro);
+    color: #fff;
+    text-align: left;
+    padding: 12px 10px;
+    position: sticky;
+    top: 0;
+  }
+  tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #eee;
+  }
+  tbody tr:nth-child(even) {
+    background: #faf6f0;
+  }
+  tbody tr:hover {
+    background: #f0e6d8;
+  }
+  .cod { font-family: monospace; color: #555; }
+  .center { text-align: center; }
+  .right { text-align: right; white-space: nowrap; }
+  .novo { font-weight: bold; color: var(--verde); }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 600px) {
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 7px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Capixaba Artefatos de Madeira</h1>
+  <p>Tabela de Preços — Atualizada</p>
+  <span class="badge">Reajuste de +10% aplicado</span>
+</header>
+
+<div class="container">
+  <div class="toolbar">
+    <input type="text" id="busca" placeholder="Buscar por código ou produto...">
+    <span class="contador" id="contador"></span>
+  </div>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Produto</th>
+        <th class="center">Qde Caixa</th>
+        <th class="right">Valor Anterior</th>
+        <th class="right">Valor Atualizado (+10%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cod">10003</td>
+        <td>Desemp. Mad. Pesada P/Acabamento 7x12</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 5,14</td>
+        <td class="right novo">R$ 5,65</td>
+      </tr>
+      <tr>
+        <td class="cod">10076</td>
+        <td>Desemp. Mad. Pesada P/Acabamento 12x20</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 9,54</td>
+        <td class="right novo">R$ 10,49</td>
+      </tr>
+      <tr>
+        <td class="cod">10077</td>
+        <td>Desemp. Mad. Pesada P/Acabamento 14x24</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 11,78</td>
+        <td class="right novo">R$ 12,96</td>
+      </tr>
+      <tr>
+        <td class="cod">10002</td>
+        <td>Desemp. Mad. Pesada (ipê, cumaru) 14x26</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 14,89</td>
+        <td class="right novo">R$ 16,38</td>
+      </tr>
+      <tr>
+        <td class="cod">10000</td>
+        <td>Desemp. Mad. Pesada (ipê,cumaru) 16x29</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 19,54</td>
+        <td class="right novo">R$ 21,49</td>
+      </tr>
+      <tr>
+        <td class="cod">10001</td>
+        <td>Desemp. Mad. Pesada (ipê,cumaru) 19x29</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 21,40</td>
+        <td class="right novo">R$ 23,54</td>
+      </tr>
+      <tr>
+        <td class="cod">10030</td>
+        <td>Desemp. Mad. Roxinho 19x29</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 26,37</td>
+        <td class="right novo">R$ 29,01</td>
+      </tr>
+      <tr>
+        <td class="cod">10031</td>
+        <td>Desemp. Mad. Roxinho 16x29</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 22,80</td>
+        <td class="right novo">R$ 25,08</td>
+      </tr>
+      <tr>
+        <td class="cod">10006</td>
+        <td>Desemp. Mad. Leve (cedro, eucalipto) 12x20</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 8,91</td>
+        <td class="right novo">R$ 9,80</td>
+      </tr>
+      <tr>
+        <td class="cod">10005</td>
+        <td>Desemp. Mad. Leve (cedro, eucalipto) 14x26</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 12,38</td>
+        <td class="right novo">R$ 13,62</td>
+      </tr>
+      <tr>
+        <td class="cod">10004</td>
+        <td>Desemp. Mad. Leve (cedro, eucalipto) 17x28</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 14,34</td>
+        <td class="right novo">R$ 15,77</td>
+      </tr>
+      <tr>
+        <td class="cod">10080</td>
+        <td>Desemp. Mad. Leve (cedro, eucalipto) 16x27</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 13,18</td>
+        <td class="right novo">R$ 14,50</td>
+      </tr>
+      <tr>
+        <td class="cod">10081</td>
+        <td>Desemp. Mad. Leve (cedro, eucalipto) 18x30</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 14,73</td>
+        <td class="right novo">R$ 16,20</td>
+      </tr>
+      <tr>
+        <td class="cod">10009</td>
+        <td>Desemp. Madeira Pinus 12x20</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 8,26</td>
+        <td class="right novo">R$ 9,09</td>
+      </tr>
+      <tr>
+        <td class="cod">10027</td>
+        <td>Desemp. Madeira Pinus 14x26</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 10,44</td>
+        <td class="right novo">R$ 11,48</td>
+      </tr>
+      <tr>
+        <td class="cod">10028</td>
+        <td>Desemp. Madeira Pinus 17x28</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 11,02</td>
+        <td class="right novo">R$ 12,12</td>
+      </tr>
+      <tr>
+        <td class="cod">10244</td>
+        <td>Desemp. p/Colocação de Bloco 8 x 45 cm</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 12,68</td>
+        <td class="right novo">R$ 13,95</td>
+      </tr>
+      <tr>
+        <td class="cod">10007</td>
+        <td>Desemp. Mad. c/Espuma (cedro, eucalipto) 14x27</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 16,60</td>
+        <td class="right novo">R$ 18,26</td>
+      </tr>
+      <tr>
+        <td class="cod">10008</td>
+        <td>Desemp. Mad. c/Espuma (cedro, eucalipto) 20x30</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 19,08</td>
+        <td class="right novo">R$ 20,99</td>
+      </tr>
+      <tr>
+        <td class="cod">10010</td>
+        <td>Desemp. Madeira Pinus c/ Espuma 14x27</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 14,26</td>
+        <td class="right novo">R$ 15,69</td>
+      </tr>
+      <tr>
+        <td class="cod">10011</td>
+        <td>Desemp. Madeira Pinus c/ Espuma 20x30</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 16,74</td>
+        <td class="right novo">R$ 18,41</td>
+      </tr>
+      <tr>
+        <td class="cod">10012</td>
+        <td>Desemp. Madeira Pinus c/ Feltro 12x20</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 14,73</td>
+        <td class="right novo">R$ 16,20</td>
+      </tr>
+      <tr>
+        <td class="cod">10013</td>
+        <td>Desemp. Madeira Pinus c/ Feltro 14x26</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 18,45</td>
+        <td class="right novo">R$ 20,30</td>
+      </tr>
+      <tr>
+        <td class="cod">10065</td>
+        <td>Desemp. Aço Liso 12x24</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 12,09</td>
+        <td class="right novo">R$ 13,30</td>
+      </tr>
+      <tr>
+        <td class="cod">10066</td>
+        <td>Desemp. Aço Dentado 12x24</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 12,09</td>
+        <td class="right novo">R$ 13,30</td>
+      </tr>
+      <tr>
+        <td class="cod">10014</td>
+        <td>Desemp. Aço Encruado Liso 12x30</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 15,35</td>
+        <td class="right novo">R$ 16,89</td>
+      </tr>
+      <tr>
+        <td class="cod">10015</td>
+        <td>Desemp. Aço Encruado Liso 12x40</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 17,03</td>
+        <td class="right novo">R$ 18,73</td>
+      </tr>
+      <tr>
+        <td class="cod">10016</td>
+        <td>Desemp. Aço Encruado Dentado 12x30</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 15,35</td>
+        <td class="right novo">R$ 16,89</td>
+      </tr>
+      <tr>
+        <td class="cod">10017</td>
+        <td>Desemp. Aço Encruado Dentado 12x40</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 17,03</td>
+        <td class="right novo">R$ 18,73</td>
+      </tr>
+      <tr>
+        <td class="cod">10018</td>
+        <td>Desemp. Aço Encruado Liso 12x50 Cabo Fechado</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 33,27</td>
+        <td class="right novo">R$ 36,60</td>
+      </tr>
+      <tr>
+        <td class="cod">10019</td>
+        <td>Desemp. Aço Encruado Dentado 12x50 Cabo Fechado</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 33,27</td>
+        <td class="right novo">R$ 36,60</td>
+      </tr>
+      <tr>
+        <td class="cod">10020</td>
+        <td>Desemp. Aço Encruado Liso 12x60 Cabo Fechado</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 38,42</td>
+        <td class="right novo">R$ 42,26</td>
+      </tr>
+      <tr>
+        <td class="cod">10021</td>
+        <td>Desemp. Aço Encruado Dentado 12x60 Cabo Fechado</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 38,42</td>
+        <td class="right novo">R$ 42,26</td>
+      </tr>
+      <tr>
+        <td class="cod">10061</td>
+        <td>Desemp. Aço Bidentado 12x29 Dente 10x10-10x18</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 20,51</td>
+        <td class="right novo">R$ 22,56</td>
+      </tr>
+      <tr>
+        <td class="cod">10062</td>
+        <td>Desemp. Aço Bidentado 12x39 Dente 10x10-10x18</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 24,73</td>
+        <td class="right novo">R$ 27,20</td>
+      </tr>
+      <tr>
+        <td class="cod">10063</td>
+        <td>Desemp. Aço Bidentado 12x49 Dente 10x12-10x18</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 32,26</td>
+        <td class="right novo">R$ 35,49</td>
+      </tr>
+      <tr>
+        <td class="cod">10064</td>
+        <td>Desemp. Aço C/Abas 12x41 Dente 10x18</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 36,39</td>
+        <td class="right novo">R$ 40,03</td>
+      </tr>
+      <tr>
+        <td class="cod">10071</td>
+        <td>Desemp. Aço C/Abas 12x61 Dente 10x18</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 49,73</td>
+        <td class="right novo">R$ 54,70</td>
+      </tr>
+      <tr>
+        <td class="cod">10022</td>
+        <td>Desemp. para Rejuntar 12x18 c/2 Abas</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 19,38</td>
+        <td class="right novo">R$ 21,32</td>
+      </tr>
+      <tr>
+        <td class="cod">10023</td>
+        <td>Desemp. para Rejuntar 12x30 c/2 Abas</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 26,91</td>
+        <td class="right novo">R$ 29,60</td>
+      </tr>
+      <tr>
+        <td class="cod">10024</td>
+        <td>Desemp. para Lixar 10x23</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 21,32</td>
+        <td class="right novo">R$ 23,45</td>
+      </tr>
+      <tr>
+        <td class="cod">10025</td>
+        <td>Aplicador p/rejunte 22x8,5 cm</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 5,29</td>
+        <td class="right novo">R$ 5,82</td>
+      </tr>
+      <tr>
+        <td class="cod">10026</td>
+        <td>Aplicador p/rejunte 15x8,5 cm</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 4,64</td>
+        <td class="right novo">R$ 5,10</td>
+      </tr>
+      <tr>
+        <td class="cod">10245</td>
+        <td>Caixa p/ 1/2 esquadria 30x13x8,5</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 23,18</td>
+        <td class="right novo">R$ 25,50</td>
+      </tr>
+      <tr>
+        <td class="cod">20001</td>
+        <td>Peneira 40x60 M4</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 30,74</td>
+        <td class="right novo">R$ 33,81</td>
+      </tr>
+      <tr>
+        <td class="cod">20002</td>
+        <td>Peneira 50x80 M4</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 35,96</td>
+        <td class="right novo">R$ 39,56</td>
+      </tr>
+      <tr>
+        <td class="cod">20003</td>
+        <td>Peneira 60x100 M4</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 54,95</td>
+        <td class="right novo">R$ 60,45</td>
+      </tr>
+      <tr>
+        <td class="cod">20004</td>
+        <td>Peneira 40x60 M5</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 30,74</td>
+        <td class="right novo">R$ 33,81</td>
+      </tr>
+      <tr>
+        <td class="cod">20005</td>
+        <td>Peneira 50x80 M5</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 35,96</td>
+        <td class="right novo">R$ 39,56</td>
+      </tr>
+      <tr>
+        <td class="cod">20006</td>
+        <td>Peneira 60x100 M5</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 54,95</td>
+        <td class="right novo">R$ 60,45</td>
+      </tr>
+      <tr>
+        <td class="cod">20007</td>
+        <td>Peneira 40x60 M6</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 30,74</td>
+        <td class="right novo">R$ 33,81</td>
+      </tr>
+      <tr>
+        <td class="cod">20008</td>
+        <td>Peneira 50x80 M6</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 35,96</td>
+        <td class="right novo">R$ 39,56</td>
+      </tr>
+      <tr>
+        <td class="cod">20009</td>
+        <td>Peneira 60x100 M6</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 54,95</td>
+        <td class="right novo">R$ 60,45</td>
+      </tr>
+      <tr>
+        <td class="cod">20010</td>
+        <td>Peneira 40x60 M8</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 30,74</td>
+        <td class="right novo">R$ 33,81</td>
+      </tr>
+      <tr>
+        <td class="cod">20011</td>
+        <td>Peneira 50x80 M8</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 35,96</td>
+        <td class="right novo">R$ 39,56</td>
+      </tr>
+      <tr>
+        <td class="cod">20012</td>
+        <td>Peneira 60x100 M8</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 54,95</td>
+        <td class="right novo">R$ 60,45</td>
+      </tr>
+      <tr>
+        <td class="cod">20013</td>
+        <td>Peneira 30x50 M26</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 30,74</td>
+        <td class="right novo">R$ 33,81</td>
+      </tr>
+      <tr>
+        <td class="cod">20014</td>
+        <td>Peneira 40x60 M26</td>
+        <td class="center">6 pç</td>
+        <td class="right">R$ 35,96</td>
+        <td class="right novo">R$ 39,56</td>
+      </tr>
+      <tr>
+        <td class="cod">20015</td>
+        <td>Peneira 30x30 M26</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 23,34</td>
+        <td class="right novo">R$ 25,67</td>
+      </tr>
+      <tr>
+        <td class="cod">30000</td>
+        <td>Cabo p/Marreta 45cm Madeira Pesada (Reto)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 6,81</td>
+        <td class="right novo">R$ 7,49</td>
+      </tr>
+      <tr>
+        <td class="cod">30001</td>
+        <td>Cabo p/Marreta 30cm Madeira Pesada (Reto)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 5,22</td>
+        <td class="right novo">R$ 5,74</td>
+      </tr>
+      <tr>
+        <td class="cod">30009</td>
+        <td>Cabo p/Marreta 90cm Madeira Pesada (+3kg)</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 18,41</td>
+        <td class="right novo">R$ 20,25</td>
+      </tr>
+      <tr>
+        <td class="cod">30002</td>
+        <td>Cabo p/Marreta 320mm Madeira Lei Redondo Encerado</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 4,20</td>
+        <td class="right novo">R$ 4,62</td>
+      </tr>
+      <tr>
+        <td class="cod">30003</td>
+        <td>Cabo p/Marreta 280mm Madeira Lei Redondo Encerado</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 3,77</td>
+        <td class="right novo">R$ 4,15</td>
+      </tr>
+      <tr>
+        <td class="cod">30060</td>
+        <td>Cabo p/Martelo 35cm Madeira Pesada (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 5,07</td>
+        <td class="right novo">R$ 5,58</td>
+      </tr>
+      <tr>
+        <td class="cod">30061</td>
+        <td>Cabo p/Martelo 54cm Madeira Pesada (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 7,97</td>
+        <td class="right novo">R$ 8,77</td>
+      </tr>
+      <tr>
+        <td class="cod">30062</td>
+        <td>Cabo p/Martelo 35cm Madeira Roxinho (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 6,96</td>
+        <td class="right novo">R$ 7,66</td>
+      </tr>
+      <tr>
+        <td class="cod">30063</td>
+        <td>Cabo p/Martelo 54cm Madeira Roxinho (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 9,99</td>
+        <td class="right novo">R$ 10,99</td>
+      </tr>
+      <tr>
+        <td class="cod">30064</td>
+        <td>Cabo p/Martelo 45cm Madeira Roxinho (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 8,55</td>
+        <td class="right novo">R$ 9,41</td>
+      </tr>
+      <tr>
+        <td class="cod">30065</td>
+        <td>Cabo p/Martelo 45cm Madeira Pesada (Anatômico)</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 6,52</td>
+        <td class="right novo">R$ 7,17</td>
+      </tr>
+      <tr>
+        <td class="cod">30080</td>
+        <td>Cabo p/Martelo 34cm Super Maderite</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 7,97</td>
+        <td class="right novo">R$ 8,77</td>
+      </tr>
+      <tr>
+        <td class="cod">30081</td>
+        <td>Cabo p/Martelo 42cm Super Maderite</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 9,99</td>
+        <td class="right novo">R$ 10,99</td>
+      </tr>
+      <tr>
+        <td class="cod">30082</td>
+        <td>Cabo p/Martelo 54cm Super Maderite</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 11,45</td>
+        <td class="right novo">R$ 12,60</td>
+      </tr>
+      <tr>
+        <td class="cod">30025</td>
+        <td>Cunha 7x3 cm</td>
+        <td class="center">12 pç</td>
+        <td class="right">R$ 0,79</td>
+        <td class="right novo">R$ 0,87</td>
+      </tr>
+      <tr>
+        <td class="cod">40160</td>
+        <td>Tábua de Corte Retangular 13x22x1,5cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 12,32</td>
+        <td class="right novo">R$ 13,55</td>
+      </tr>
+      <tr>
+        <td class="cod">40161</td>
+        <td>Tábua de Corte Retangular 20x30x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 28,71</td>
+        <td class="right novo">R$ 31,58</td>
+      </tr>
+      <tr>
+        <td class="cod">40162</td>
+        <td>Tábua de Corte Retangular 23x35x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 34,07</td>
+        <td class="right novo">R$ 37,48</td>
+      </tr>
+      <tr>
+        <td class="cod">40163</td>
+        <td>Tábua de Corte Retangular 30x40x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 62,78</td>
+        <td class="right novo">R$ 69,06</td>
+      </tr>
+      <tr>
+        <td class="cod">40164</td>
+        <td>Tábua de Corte Retangular 35x45x2,3cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 95,41</td>
+        <td class="right novo">R$ 104,95</td>
+      </tr>
+      <tr>
+        <td class="cod">40170</td>
+        <td>Tábua de Corte Retangular 29x49x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 102,37</td>
+        <td class="right novo">R$ 112,61</td>
+      </tr>
+      <tr>
+        <td class="cod">40171</td>
+        <td>Tábua de Corte Retangular 31x45x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 79,02</td>
+        <td class="right novo">R$ 86,92</td>
+      </tr>
+      <tr>
+        <td class="cod">40180</td>
+        <td>Tábua de Corte Redonda 35x2cm Capixaba</td>
+        <td class="center">06 pç</td>
+        <td class="right">R$ 60,46</td>
+        <td class="right novo">R$ 66,51</td>
+      </tr>
+      <tr>
+        <td class="cod">80000</td>
+        <td>Roseta de Pinus 9x14x3,5cm (emb) c/Moldura</td>
+        <td class="center">Unid</td>
+        <td class="right">R$ 3,62</td>
+        <td class="right novo">R$ 3,98</td>
+      </tr>
+      <tr>
+        <td class="cod">80004</td>
+        <td>Bloco Espuma 14x27</td>
+        <td class="center">Unid</td>
+        <td class="right">R$ 2,60</td>
+        <td class="right novo">R$ 2,86</td>
+      </tr>
+      <tr>
+        <td class="cod">80005</td>
+        <td>Bloco de Espuma p/ Limpeza 20x14x6cm D-20</td>
+        <td class="center">Unid</td>
+        <td class="right">R$ 4,20</td>
+        <td class="right novo">R$ 4,62</td>
+      </tr>
+      <tr>
+        <td class="cod">80006</td>
+        <td>Feltro Avulso 12x20 Renner</td>
+        <td class="center">Unid</td>
+        <td class="right">R$ 8,41</td>
+        <td class="right novo">R$ 9,25</td>
+      </tr>
+      <tr>
+        <td class="cod">80007</td>
+        <td>Feltro Avulso 14x26 Renner</td>
+        <td class="center">Unid</td>
+        <td class="right">R$ 11,31</td>
+        <td class="right novo">R$ 12,44</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  Capixaba Artefatos de Madeira &middot; capixaba@capixabaart.com.br
+</footer>
+
+<script>
+  const busca = document.getElementById('busca');
+  const linhas = document.querySelectorAll('#tabela tbody tr');
+  const contador = document.getElementById('contador');
+
+  function atualizarContador() {
+    let visiveis = 0;
+    linhas.forEach(l => { if (l.style.display !== 'none') visiveis++; });
+    contador.textContent = visiveis + ' de ' + linhas.length + ' produtos';
+  }
+
+  busca.addEventListener('input', () => {
+    const termo = busca.value.toLowerCase();
+    linhas.forEach(l => {
+      const texto = l.textContent.toLowerCase();
+      l.style.display = texto.includes(termo) ? '' : 'none';
+    });
+    atualizarContador();
+  });
+
+  atualizarContador();
+</script>
+
+</body>
+</html>
